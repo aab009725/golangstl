@@ -68,3 +68,14 @@ func Copyvectorwitharray(indata[] interface{})Vector{
 	re.size=num+1
 	return re
 }
+func Copyvectorwithself(indata Vector)Vector{
+	var re Vector
+	num:=0
+	re.data=make([]interface{},indata.size+re.grow)
+	for _,value:=range indata.data[:indata.size] {
+		re.data[num] = value
+		num++
+	}
+	re.size=num+1
+	return re
+}
