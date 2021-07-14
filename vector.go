@@ -1,4 +1,5 @@
 package mystl
+
 type Vector struct {
 	grow int
 	size int
