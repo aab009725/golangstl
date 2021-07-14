@@ -4,20 +4,20 @@ type Vector struct {
 	size int
 	data[] interface{}
 }
-func (self *Vector)del(num int){
-	self.setvalue(num,nil)
+func (self *Vector)Del(num int){
+	self.Setvalue(num,nil)
 	self.size--
 }
-func (self *Vector)append(value interface{}){
+func (self *Vector)Append(value interface{}){
 	if self.size+1==len(self.data){
-		self.begrow()
+		self.Begrow()
 	}
-	self.setvalue(self.size+1,value)
+	self.Setvalue(self.size+1,value)
 	self.size++
 }
-func (self *Vector)insert(num int,value interface{}){
+func (self *Vector)Insert(num int,value interface{}){
 	if self.size+1==len(self.data) {
-		self.begrow()
+		self.Begrow()
 	}
 	if num<self.size {
 		a := self.data[num : len(self.data)-1]
@@ -28,20 +28,20 @@ func (self *Vector)insert(num int,value interface{}){
 			self.data[pass+num+1] = a[pass]
 		}
 	}else{
-		self.setvalue(num,value)
+		self.Setvalue(num,value)
 	}
 	self.size++
 }
-func(self *Vector)setvalue(num int,value interface{}){
+func(self *Vector)Setvalue(num int,value interface{}){
 	self.data[num]=value
 }
-func (self *Vector)setgrow(num int){
+func (self *Vector)Setgrow(num int){
 	self.grow=num
 }
-func (self *Vector)getvalue(num int)interface{}{
+func (self *Vector)Getvalue(num int)interface{}{
 	return self.data[num]
 }
-func(self *Vector)begrow(){
+func(self *Vector)Begrow(){
 	mylen:=len(self.data)
 	a:=make([]interface{},mylen+self.grow)
 	for i:=0;i<mylen;i++{
@@ -49,14 +49,14 @@ func(self *Vector)begrow(){
 	}
 	self.data=a
 }
-func makevector(size int)Vector{
+func Makevector(size int)Vector{
 	var re Vector
 	re.grow=10
 	re.data=make([]interface{},size)
 	re.size=0
 	return re
 }
-func copyvectorwitharray(indata[] interface{})Vector{
+func Copyvectorwitharray(indata[] interface{})Vector{
 	var re Vector
 	num:=0
 	re.data=make([]interface{},len(indata)+re.grow)
