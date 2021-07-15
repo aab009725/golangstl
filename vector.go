@@ -79,5 +79,3 @@ func Copyvectorwithself(indata Vector)Vector{
 	re.size=num+1
 	return re
 }
-bi
-w
